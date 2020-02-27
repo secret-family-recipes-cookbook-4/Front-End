@@ -16,7 +16,7 @@ export default function Header(props) {
         <Link to="/Login">Login</Link>
       </div>
       <div>
-        <Link to="/Registration">Sign Up</Link>
+        <Link to="/RegistrationForm">Sign Up</Link>
       </div>
     </div>
   );

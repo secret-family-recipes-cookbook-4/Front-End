@@ -4,8 +4,6 @@ import * as yup from "yup";
 import axios from "axios";
 import styled from "styled-components";
 
-import UserCard from "./RegistrationCard";
-
 const Button = styled.button`
   font-size: 22px;
   padding: 5px 20px;
@@ -111,7 +109,6 @@ function InputForm({ errors, touched, isSubmitting, status }) {
           </Button>
         </div>
       </Form>
-      <UserCard users={users} />
     </div>
   );
 }

@@ -15,8 +15,8 @@ function App() {
       <Header />
       <Route exact path="/" component={Home} />
       <Route path="/About" component={About} />
-      <Route path="/registration" component={RegistrationForm} />
-      <Route path="/login" component={LoginForm} />
+      <Route path="/RegistrationForm" component={RegistrationForm} />
+      <Route path="/Login" component={LoginForm} />
     </main>
   );
 }
