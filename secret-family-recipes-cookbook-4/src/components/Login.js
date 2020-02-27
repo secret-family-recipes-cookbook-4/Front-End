@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import { Form, Field, ErrorMessage } from "formik";
 import styled from "styled-components";
-import {axiosWithAuth} from "../components/utils/axiosWithAuth";
+
 
 
 const Button = styled.button`
@@ -16,8 +16,6 @@ const Button = styled.button`
     cursor: pointer;
   }
 `;
-
-
 
 export default function Login() {
   return (
