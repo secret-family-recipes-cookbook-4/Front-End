@@ -10,7 +10,7 @@ export const signUp = (credentials, history) => dispatch => {
   dispatch({ type: SIGN_UP_START });
   axios
     .post(
-      "https://bw-sfc4.herokuapp.com/api/auth/registerr",
+      "https://bw-sfc4.herokuapp.com/api/auth/register",
       creds
     )
     .then(res => {
