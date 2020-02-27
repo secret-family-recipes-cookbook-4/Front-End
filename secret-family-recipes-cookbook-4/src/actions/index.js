@@ -10,7 +10,7 @@ export const signUp = (credentials, history) => dispatch => {
   dispatch({ type: SIGN_UP_START });
   axios
     .post(
-      "https://lambdaschool-cookbook2.herokuapp.com/auth/register",
+      "https://bw-sfc4.herokuapp.com/api/auth/registerr",
       creds
     )
     .then(res => {
