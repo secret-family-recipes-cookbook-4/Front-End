@@ -13,6 +13,7 @@ function App() {
       <div>
         <Link to="/Login">Login</Link>
         <Link to="/RegistrationForm">Sign Up</Link>
+        <Link to="/Recipes">Recipes</Link> 
       </div>
       <Switch>
         <PrivateRoute exact path="/Recipes" component={RecipeForm} />
