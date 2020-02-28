@@ -1,30 +1,59 @@
-import React from "react";
-import { Form, Field, ErrorMessage } from "formik";
-import styled from "styled-components";
+import React, { useState } from "react";
+import {
+  Button,
+  Container,
+  Col,
+  Form,
+  FormGroup,
+  Input,
+  Label
+} from "reactstrap";
 
+function RegistrationForm() {
+  const [user, setUser] = useState({ username: "", password: "" });
 
+  const handleChange = event => {
+    setUser({ ...user, [event.target.name]: event.target.value });
+  };
 
-const Button = styled.button`
-  font-size: 22px;
-  padding: 5px 20px;
-  border-radius: 2px;
-  margin: 10px 0 30px 0;
-  background: goldenrod;
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(user.name);
+    console.log(user.password);
+  };
 
-  &:hover {
-    background: #fff;
-    cursor: pointer;
-  }
-`;
-
-export default function Login() {
   return (
-    <Form>
-      <Field type="text" name="email" placeholder="email" />
-      <ErrorMessage name="email" />
-      <Field type="password" name="password" placeholder="password" />
-      <ErrorMessage name="password" />
-      <Button type="submit"> Submit </Button>
-    </Form>
+    <Container>
+      {console.log(user)}
+      <Form onSubmit={event => handleSubmit(event)}>
+        <Col>
+          <FormGroup>
+            <Label htmlFor="username">Username: </Label>
+            <Input
+              id="username"
+              type="text"
+              name="username"
+              value={user.username}
+              onChange={event => handleChange(event)}
+            />
+          </FormGroup>
+        </Col>
+        <Col>
+          <FormGroup>
+            <Label htmlFor="password">Password: </Label>
+            <Input
+              id="password"
+              type="password"
+              name="password"
+              value={user.password}
+              onChange={event => handleChange(event)}
+            />
+          </FormGroup>
+        </Col>
+        <Button>Submit!</Button>
+      </Form>
+    </Container>
   );
 }
+
+export default RegistrationForm;
