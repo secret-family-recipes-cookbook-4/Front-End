@@ -11,14 +11,14 @@ function App() {
   return (
     <main>
       <div>
-        <Link to="/Login">Login</Link>
-        <Link to="/RegistrationForm">Sign Up</Link>
-        <Link to="/Recipes">Recipes</Link> 
+        <Link to="/login">Login</Link>
+        <Link to="/registrationForm">Sign Up</Link>
+        <Link to="/recipes">Recipes</Link> 
       </div>
       <Switch>
-        <PrivateRoute exact path="/Recipes" component={RecipeForm} />
-        <Route path="/RegistrationForm" component={RegistrationForm} />
-        <Route path="/Login" component={LoginForm} />
+        <PrivateRoute exact path="/recipes" component={RecipeForm} />
+        <Route path="/registrationForm" component={RegistrationForm} />
+        <Route path="/login" component={LoginForm} />
       </Switch>
     </main>
   );

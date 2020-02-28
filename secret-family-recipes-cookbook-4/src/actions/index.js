@@ -43,7 +43,7 @@ export const logIn = (credentials, history) => dispatch => {
     .then(res => {
       dispatch({ type: LOG_IN_SUCCESS });
       localStorage.setItem("token", res.data.token);
-      history.push('/Recipes');
+      history.push('/recipes');
       return true;
     })
     .catch(err => {
