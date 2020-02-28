@@ -1,5 +1,5 @@
 import axios from "axios";
-import { axiosWithAuth } from "../util/axiosWithAuth";
+import axiosWithAuth from "../components/utils/axiosWithAuth";
 
 export const SIGN_UP_START = "SIGN_UP_START";
 export const SIGN_UP_SUCCESS = "SIGN_UP_SUCCESS";
