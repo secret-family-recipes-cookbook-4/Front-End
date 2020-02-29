@@ -8,8 +8,10 @@ import {
   Input,
   Label
 } from "reactstrap";
+import { logIn } from "../actions/index";
+import { connect } from "react-redux";
 
-function RegistrationForm() {
+const RegistrationForm = props => {
   const [user, setUser] = useState({ username: "", password: "" });
 
   const handleChange = event => {
@@ -18,6 +20,7 @@ function RegistrationForm() {
 
   const handleSubmit = event => {
     event.preventDefault();
+    props.logIn(user);
     console.log(user.name);
     console.log(user.password);
   };
@@ -56,4 +59,10 @@ function RegistrationForm() {
   );
 }
 
-export default RegistrationForm;
+const mapStateToProps = state => {
+  return {
+    state
+  };
+};
+
+export default connect(mapStateToProps, { logIn })(RegistrationForm);

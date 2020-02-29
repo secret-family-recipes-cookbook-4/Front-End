@@ -31,6 +31,7 @@ const RegistrationForm = props => {
 
   return (
     <Container>
+      {console.log(newUser)}
       <Form onSubmit={event => handleSubmit(event)}>
         <Col>
           <FormGroup>
