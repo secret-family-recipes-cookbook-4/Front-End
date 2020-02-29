@@ -17,10 +17,14 @@ import {
     DELETE_RECIPE_START,
     DELETE_RECIPE_SUCCESS,
     DELETE_RECIPE_FAILURE,
+    FETCH_TITLES_START,
+    FETCH_TITLES_SUCCESS,
+    FETCH_TITLES_FAILURE
   } from "../actions";
   
   const initialState = {
     recipe: null,
+    titles: [],
     error: null,
     signingUp: false,
     loggingIn: false,
@@ -28,6 +32,9 @@ import {
     addingRecipe: false,
     updatingRecipe: false,
     deletingRecipe: false,
+    fetchingTitles: false,
+    uniqueTags: ["all"],
+    currentRecipes: [],
     success: false
   };
   
@@ -165,6 +172,41 @@ import {
               deletingRecipe: false,
               success: false
             };
+        case FETCH_TITLES_START:
+            return {
+              ...state,
+              error: null,
+              fetchingTitles: true,
+              success: false
+            };
+        case FETCH_TITLES_SUCCESS:
+            const tempUniqueTags = ["all"];
+              action.payload.recipes.forEach(title => {
+                title.tags.forEach(tag => {
+                  if (!tempUniqueTags.includes(tag)) {
+                    tempUniqueTags.push(tag);
+                  }
+                });
+              });
+              console.log("payload", action.payload.recipes)
+              return {
+                ...state,
+                titles: action.payload,
+                fetchingTitles: false,
+                error: null,
+                uniqueTags: tempUniqueTags,
+                currentRecipes: action.payload.recipes,
+                success: true
+              };
+          case FETCH_TITLES_FAILURE:
+              return {
+                ...state,
+                error: action.payload,
+                fetchingTitles: false,
+                success: false
+              };
+          default:
+            return state;
     }
   };
   
