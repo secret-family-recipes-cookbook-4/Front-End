@@ -1,18 +1,15 @@
 /* .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,11 +20,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -51,12 +46,6 @@ main {
   overflow: hidden;
 }
 
-a {
-  color: #ffffff;
-  font-family: "Butterfly Kids", cursive;
-  font-size: 1.2rem;
-}
-
 .form {
   display: flex;
   flex-flow: column nowrap;
@@ -67,17 +56,34 @@ a {
   margin: 0 auto;
   width: 75%;
   padding: 30px;
-  color: #ffffff;
+  color: white;
   text-transform: uppercase;
   font-size: 1.8rem;
   font-weight: bold;
   background-color: #964e31;
 }
 
-.navbar {
+.navigation {
+  background-color: white;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
-  margin: auto;
+  margin-bottom: 50px;
+}
+
+.logo {
+  width: 200px;
+}
+
+.link {
+  color: black;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #964e31;
 }
