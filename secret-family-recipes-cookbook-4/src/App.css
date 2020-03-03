@@ -67,3 +67,28 @@ main {
   font-weight: bold;
   background-color: #964e31;
 }
+
+.navigation {
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.logo {
+  width: 200px;
+}
+
+.link {
+  color: black;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #964e31;
+}
