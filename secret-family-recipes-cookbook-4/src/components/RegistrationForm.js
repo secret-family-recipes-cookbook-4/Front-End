@@ -33,7 +33,7 @@ const RegistrationForm = props => {
     <Container className="Container">
       {console.log(newUser)}
       <Form className="form" onSubmit={event => handleSubmit(event)}>
-        <Col>
+        {/* <Col>
           <FormGroup>
             <Label htmlFor="firstname">Firstname: </Label>
             <Input
@@ -60,7 +60,7 @@ const RegistrationForm = props => {
               onChange={event => handleChange(event)}
             />
           </FormGroup>
-        </Col>
+        </Col> */}
         <Col>
           <FormGroup>
             <Label htmlFor="username">Username: </Label>
