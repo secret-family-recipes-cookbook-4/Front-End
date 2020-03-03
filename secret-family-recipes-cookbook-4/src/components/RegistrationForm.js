@@ -30,9 +30,9 @@ const RegistrationForm = props => {
   };
 
   return (
-    <Container>
+    <Container className="Container">
       {console.log(newUser)}
-      <Form onSubmit={event => handleSubmit(event)}>
+      <Form className="form" onSubmit={event => handleSubmit(event)}>
         <Col>
           <FormGroup>
             <Label htmlFor="firstname">Firstname: </Label>
@@ -109,7 +109,7 @@ const RegistrationForm = props => {
       </Form>
     </Container>
   );
-}
+};
 
 const mapStateToProps = state => {
   return {
