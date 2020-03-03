@@ -15,13 +15,13 @@ function App() {
         <Link to="/login">Login</Link>
         <Link to="/registrationForm">Sign Up</Link>
         <Link to="/recipes">Recipes</Link>
-        <NavbarText>Photo by Skitterphoto from Pexels</NavbarText>
       </Navbar>
       <Switch>
         <PrivateRoute exact path="/recipes" component={RecipeForm} />
         <Route path="/registrationForm" component={RegistrationForm} />
         <Route path="/login" component={LoginForm} />
       </Switch>
+      <NavbarText>Photo by Skitterphoto from Pexels</NavbarText>
     </main>
   );
 }
