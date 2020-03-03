@@ -30,10 +30,10 @@ const RegistrationForm = props => {
   };
 
   return (
-    <Container>
+    <Container className="Container">
       {console.log(newUser)}
-      <Form onSubmit={event => handleSubmit(event)}>
-        <Col>
+      <Form className="form" onSubmit={event => handleSubmit(event)}>
+        {/* <Col>
           <FormGroup>
             <Label htmlFor="firstname">Firstname: </Label>
             <Input
@@ -60,7 +60,7 @@ const RegistrationForm = props => {
               onChange={event => handleChange(event)}
             />
           </FormGroup>
-        </Col>
+        </Col> */}
         <Col>
           <FormGroup>
             <Label htmlFor="username">Username: </Label>
@@ -109,7 +109,7 @@ const RegistrationForm = props => {
       </Form>
     </Container>
   );
-}
+};
 
 const mapStateToProps = state => {
   return {

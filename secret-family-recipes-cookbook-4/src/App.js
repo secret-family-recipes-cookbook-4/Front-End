@@ -21,6 +21,7 @@ function App() {
         <Route component={LoginForm} />
         <Route component={RegistrationForm} />
       </Switch>
+      <footer>Photo by Narda Yescas from Pexels</footer>
     </main>
   );
 }

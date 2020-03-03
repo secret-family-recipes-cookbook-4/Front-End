@@ -1,26 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Recipes from "../Logo/Recipes.jpg";
+import Recipes from "../img/Recipes.jpg";
 
 const Navigation = () => {
   return (
-    <div>
+    <div className="navigation">
       <div>
-        <img src={Recipes}/>
+        <img className="logo" src={Recipes}/>
       </div>
-      <div>
+      <div className="link">
         <Link to="/">Home</Link>
       </div>
-      <div>
+      <div className="link">
         <Link to="/about">About</Link>
       </div>
-      <div>
+      <div className="link">
         <Link to="/login">Login</Link>
       </div>
-      <div>
+      <div className="link">
         <Link to="/registrationForm">Sign Up</Link>
       </div>
-      <div>
+      <div className="link">
       <Link to="/recipes">Recipes</Link>
       </div>
     </div>  
