@@ -24,11 +24,11 @@ const RegistrationForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.signUp(newUser);
+    props.history.push('/login');
   };
 
   return (
     <Container className="Container">
-      {console.log(newUser)}
       <Form className="form" onSubmit={event => handleSubmit(event)}>
         {/* <Col>
           <FormGroup>
