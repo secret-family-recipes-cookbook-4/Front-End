@@ -21,13 +21,11 @@ const RegistrationForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.logIn(user);
-    console.log(user.name);
-    console.log(user.password);
+    props.history.push('/recipes');
   };
 
   return (
     <Container className="Container">
-      {console.log(user)}
       <Form className="form">
         <Col>
           <FormGroup>

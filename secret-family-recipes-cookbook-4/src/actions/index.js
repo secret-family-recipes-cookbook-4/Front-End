@@ -1,25 +1,22 @@
 import axiosWithAuth from "../components/utils/axiosWithAuth";
+import axios from "axios";
 
 export const SIGN_UP_START = "SIGN_UP_START";
 export const SIGN_UP_SUCCESS = "SIGN_UP_SUCCESS";
 export const SIGN_UP_FAILURE = "SIGN_UP_FAILURE";
 
-export const signUp = (credentials, history) => dispatch => {
+export const signUp = (credentials) => dispatch => {
   const creds = { username: credentials.username, password: credentials.password }
+  console.log("creds", creds);
   dispatch({ type: SIGN_UP_START });
-  axiosWithAuth()
+  axios
     .post(
-      "/api/auth/register",
+      "https://bw-sfc4.herokuapp.com/api/auth/register",
       creds
     )
     .then(res => {
       dispatch({ type: SIGN_UP_SUCCESS });
-      if (res.data.token) {
-        localStorage.setItem("token", res.data.token);
-        history.push('/recipes');
-      } else {
-        credentials.history.push('/login');
-      }
+      console.log("res", res)
       return true;
     })
     .catch(err => {
@@ -32,21 +29,19 @@ export const LOG_IN_START = "LOG_IN_START";
 export const LOG_IN_SUCCESS = "LOG_IN_SUCCESS";
 export const LOG_IN_FAILURE = "LOG_IN_FAILURE";
 
-export const logIn = (credentials, history) => dispatch => {
+export const logIn = (credentials) => dispatch => {
+  const creds = { username: credentials.username, password: credentials.password }
   dispatch({ type: LOG_IN_START });
-  axiosWithAuth()
-    .post(
+  axiosWithAuth().post(
       "/api/auth/login",
-      credentials
-    )
-    .then(res => {
+      creds
+    ).then(res => {
       dispatch({ type: LOG_IN_SUCCESS });
-      localStorage.setItem("token", res.data.token);
-      history.push('/recipes');
+      console.log(res)
+      localStorage.setItem("token", res.data.payload);
       return true;
-    })
-    .catch(err => {
-      dispatch({ type: LOG_IN_FAILURE, payload: err });
+    }).catch(err => {
+      dispatch({ type: LOG_IN_FAILURE, payload: err.message });
       return false;
     });
 };
