@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import RegistrationForm from "./components/RegistrationForm";
 import RecipeForm from "./components/RegistrationForm";
-import LoginForm from "./components/LoginForm";
+import Login from "./components/Login";
 import Navigation from "./components/Navigation";
 
 import "./App.css";
@@ -16,9 +16,9 @@ function App() {
       </div>
       <Switch>
         <PrivateRoute exact path="/recipes" component={RecipeForm} />
-        <Route path="/login" component={LoginForm} />
+        <Route path="/login" component={Login} />
         <Route path="/registrationForm" component={RegistrationForm} />
-        <Route component={LoginForm} />
+        <Route component={Login} />
         <Route component={RegistrationForm} />
       </Switch>
       <footer>Photo by Narda Yescas from Pexels</footer>
