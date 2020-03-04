@@ -13,11 +13,8 @@ import { connect } from "react-redux";
 
 const RegistrationForm = props => {
   const [newUser, setUser] = useState({
-    firstname: "",
-    lastname: "",
     username: "",
     password: "",
-    confirmPassword: ""
   });
 
   const handleChange = event => {

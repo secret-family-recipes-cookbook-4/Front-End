@@ -53,7 +53,7 @@ const RegistrationForm = props => {
             />
           </FormGroup>
         </Col>
-        <Button onSubmit={event => handleSubmit(event)}>Submit!</Button>
+        <Button onSubmit={event => handleSubmit(event)}>Login</Button>
       </Form>
     </Container>
   );

@@ -6,7 +6,7 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <div>
-        <img className="logo" src={Recipes}/>
+        <img className="logo" src={Recipes} alt="recipes logo"/>
       </div>
       <div className="link">
         <Link to="/">Home</Link>
