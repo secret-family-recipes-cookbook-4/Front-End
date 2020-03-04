@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import RegistrationForm from "./components/RegistrationForm";
-import RecipeForm from "./components/RegistrationForm";
+import RecipeForm from "./components/RecipeForm";
 import Login from "./components/Login";
 import Navigation from "./components/Navigation";
 
