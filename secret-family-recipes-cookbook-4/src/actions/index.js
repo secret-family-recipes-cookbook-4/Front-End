@@ -1,4 +1,3 @@
-import axios from "axios";
 import axiosWithAuth from "../components/utils/axiosWithAuth";
 
 export const SIGN_UP_START = "SIGN_UP_START";
@@ -8,18 +7,18 @@ export const SIGN_UP_FAILURE = "SIGN_UP_FAILURE";
 export const signUp = (credentials, history) => dispatch => {
   const creds = { username: credentials.username, password: credentials.password }
   dispatch({ type: SIGN_UP_START });
-  axios
+  axiosWithAuth()
     .post(
-      "https://bw-sfc4.herokuapp.com/api/auth/register",
+      "/api/auth/register",
       creds
     )
     .then(res => {
       dispatch({ type: SIGN_UP_SUCCESS });
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
-        history.push('/');
+        history.push('/recipes');
       } else {
-        credentials.history.push('/log-in');
+        credentials.history.push('/login');
       }
       return true;
     })
@@ -35,9 +34,9 @@ export const LOG_IN_FAILURE = "LOG_IN_FAILURE";
 
 export const logIn = (credentials, history) => dispatch => {
   dispatch({ type: LOG_IN_START });
-  axios
+  axiosWithAuth()
     .post(
-      "https://bw-sfc4.herokuapp.com/api/auth/login",
+      "/api/auth/login",
       credentials
     )
     .then(res => {
