@@ -1,5 +1,6 @@
 import axiosWithAuth from "../components/utils/axiosWithAuth";
 import axios from "axios";
+import jwt from "jsonwebtoken";
 
 export const SIGN_UP_START = "SIGN_UP_START";
 export const SIGN_UP_SUCCESS = "SIGN_UP_SUCCESS";
@@ -50,12 +51,13 @@ export const FETCH_RECIPE_START = "FETCH_RECIPE_START";
 export const FETCH_RECIPE_SUCCESS = "FETCH_RECIPE_SUCCESS";
 export const FETCH_RECIPE_FAILURE = "FETCH_RECIPE_FAILURE";
 
-export const getRecipe = recipeID => dispatch => {
+export const getRecipe = () => dispatch => {
   dispatch({ type: FETCH_RECIPE_START });
   axiosWithAuth()
-    .get(`/api/recipes/${recipeID}`)
+    .get(`/api/recipes/allRecipes`)
     .then(res => {
-      dispatch({ type: FETCH_RECIPE_SUCCESS, payload: res.data.recipe });
+      console.log(res.data)
+      dispatch({ type: FETCH_RECIPE_SUCCESS, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: FETCH_RECIPE_FAILURE, payload: err });
@@ -66,14 +68,15 @@ export const ADD_RECIPE_START = "ADD_RECIPE_START";
 export const ADD_RECIPE_SUCCESS = "ADD_RECIPE_SUCCESS";
 export const ADD_RECIPE_FAILURE = "ADD_RECIPE_FAILURE";
 
-export const addRecipe = (newRecipe, history) => dispatch => {
+export const addRecipe = (newRecipe) => dispatch => {
   dispatch({ type: ADD_RECIPE_START });
+  const userId = jwt.decode(localStorage.getItem("token")).userid;
   axiosWithAuth()
-    .post("/api/recipes", newRecipe)
+      .post("/api/recipes", {...newRecipe, user_id: userId})
     .then(res => {
       dispatch({ type: ADD_RECIPE_SUCCESS, payload: res.data });
-      const recipe_id = res.data[res.data.length - 1].id
-      history.push(`/recipes/view/${recipe_id}`)
+      // const recipe_id = res.data[res.data.length - 1].id
+      // history.push(`/recipes/view/${recipe_id}`)
     })
     .catch(err => {
       dispatch({ type: ADD_RECIPE_FAILURE, payload: err });

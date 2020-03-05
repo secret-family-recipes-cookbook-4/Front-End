@@ -23,7 +23,7 @@ import {
   } from "../actions";
   
   const initialState = {
-    recipe: null,
+    recipe: [],
     titles: [],
     error: null,
     signingUp: false,

@@ -21,7 +21,7 @@ const RegistrationForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.logIn(user);
-    props.history.push('/recipes');
+    props.history.push("/recipes");
   };
 
   return (
@@ -34,6 +34,7 @@ const RegistrationForm = props => {
               id="username"
               type="text"
               name="username"
+              required
               value={user.username}
               onChange={event => handleChange(event)}
             />
@@ -46,12 +47,15 @@ const RegistrationForm = props => {
               id="password"
               type="password"
               name="password"
+              required
               value={user.password}
               onChange={event => handleChange(event)}
             />
           </FormGroup>
         </Col>
-        <Button type="submit">Login</Button>
+        <Button className="btn" type="submit">
+          Login
+        </Button>
       </Form>
     </Container>
   );
