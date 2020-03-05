@@ -17,13 +17,13 @@ class RecipeForm extends React.Component {
   state = {
     title: "",
     source: "",
-    ingredients: [],
-    directions: [],
+    ingredients: "salt",
+    directions: "cook",
     tags: [],
     note: "",
     fullNote: [],
-    ingredientValue: "",
-    directionValue: "",
+    ingredientValue: [],
+    directionValue: [],
     tag: "",
     commonTags: [
       "Breakfast",
@@ -48,102 +48,102 @@ class RecipeForm extends React.Component {
     });
   };
 
-  addIngredient = e => {
-    e.preventDefault();
-    this.setState(state => {
-      const ingredients = [...state.ingredients, state.ingredientValue];
-      return {
-        ingredients,
-        ingredientValue: ""
-      };
-    });
-  };
+  // addIngredient = e => {
+  //   e.preventDefault();
+  //   this.setState(state => {
+  //     const ingredients = [...state.ingredients, state.ingredientValue];
+  //     return {
+  //       ingredients,
+  //       ingredientValue: ""
+  //     };
+  //   });
+  // };
 
-  addDirection = e => {
-    e.preventDefault();
-    this.setState(state => {
-      const directions = [...state.directions, state.directionValue];
-      return {
-        directions,
-        directionValue: ""
-      };
-    });
-  };
+  // addDirection = e => {
+  //   e.preventDefault();
+  //   this.setState(state => {
+  //     const directions = [...state.directions, state.directionValue];
+  //     return {
+  //       directions,
+  //       directionValue: ""
+  //     };
+  //   });
+  // };
 
-  addTagByButton = (e, tag) => {
-    e.preventDefault();
-    this.setState(state => {
-      const tags = [...state.tags, tag.toString()];
-      const commonTags = state.commonTags.filter(el => el !== tag);
-      return {
-        tags,
-        commonTags
-      };
-    });
-  };
-  addCustomTag = e => {
-    e.preventDefault();
-    const newTags = [...this.state.tags];
-    newTags.push(this.state.tag);
-    this.setState({
-      tags: newTags,
-      tag: ""
-    });
-  };
-  addNote = e => {
-    e.preventDefault();
-    const newNote = this.state.fullNote;
-    newNote.push(this.state.note);
-    this.setState({
-      fullNote: newNote,
-      note: ""
-    });
-  };
+  // addTagByButton = (e, tag) => {
+  //   e.preventDefault();
+  //   this.setState(state => {
+  //     const tags = [...state.tags, tag.toString()];
+  //     const commonTags = state.commonTags.filter(el => el !== tag);
+  //     return {
+  //       tags,
+  //       commonTags
+  //     };
+  //   });
+  // };
+  // addCustomTag = e => {
+  //   e.preventDefault();
+  //   const newTags = [...this.state.tags];
+  //   newTags.push(this.state.tag);
+  //   this.setState({
+  //     tags: newTags,
+  //     tag: ""
+  //   });
+  // };
+  // addNote = e => {
+  //   e.preventDefault();
+  //   const newNote = this.state.fullNote;
+  //   newNote.push(this.state.note);
+  //   this.setState({
+  //     fullNote: newNote,
+  //     note: ""
+  //   });
+  // };
 
-  deleteIngredient = (e, index) => {
-    e.preventDefault();
-    const newIngredients = [...this.state.ingredients];
-    newIngredients.splice(index, 1);
-    this.setState({
-      ingredients: newIngredients
-    });
-  };
-  deleteDirection = (e, index) => {
-    e.preventDefault();
-    const newDirections = [...this.state.directions];
-    newDirections.splice(index, 1);
-    this.setState({
-      directions: newDirections
-    });
-  };
-  deleteTag = (e, index) => {
-    e.preventDefault();
-    const newTags = [...this.state.tags];
-    newTags.splice(index, 1);
-    this.setState({
-      tags: newTags
-    });
-  };
+  // deleteIngredient = (e, index) => {
+  //   e.preventDefault();
+  //   const newIngredients = [...this.state.ingredients];
+  //   newIngredients.splice(index, 1);
+  //   this.setState({
+  //     ingredients: newIngredients
+  //   });
+  // };
+  // deleteDirection = (e, index) => {
+  //   e.preventDefault();
+  //   const newDirections = [...this.state.directions];
+  //   newDirections.splice(index, 1);
+  //   this.setState({
+  //     directions: newDirections
+  //   });
+  // };
+  // deleteTag = (e, index) => {
+  //   e.preventDefault();
+  //   const newTags = [...this.state.tags];
+  //   newTags.splice(index, 1);
+  //   this.setState({
+  //     tags: newTags
+  //   });
+  // };
 
-  deleteNote = (e, index) => {
-    e.preventDefault();
-    const newNote = [...this.state.fullNote];
-    newNote.splice(index, 1);
-    this.setState({
-      fullNote: newNote
-    });
-  };
+  // deleteNote = (e, index) => {
+  //   e.preventDefault();
+  //   const newNote = [...this.state.fullNote];
+  //   newNote.splice(index, 1);
+  //   this.setState({
+  //     fullNote: newNote
+  //   });
+  // };
 
   submitRecipe = e => {
     e.preventDefault();
-    const fullNoteString = this.state.fullNote.join("||");
+    // const fullNoteString = this.state.fullNote.join("||");
     const newRecipe = {
       title: this.state.title,
       source: this.state.source,
       ingredients: this.state.ingredients,
       instructions: this.state.directions,
-      tags: this.state.tags,
-      notes: fullNoteString
+      // tags: this.state.tags,
+      // notes: fullNoteString
     };
     console.log("submit recipe history", this.props.history);
     this.props.addRecipe(newRecipe, this.props.history);
@@ -179,7 +179,7 @@ class RecipeForm extends React.Component {
           </Col>
           <Col>
             <FormGroup>
-              <div className="ingredients-wrapper">
+              {/* <div className="ingredients-wrapper"> */}
                 <Label>Ingredients</Label>
 
                 <Input
@@ -189,6 +189,7 @@ class RecipeForm extends React.Component {
                   onChange={this.handleChanges}
                   value={this.state.ingredientValue}
                 />
+                {/* <Button onClick={this.addIngredient}>Add Ingredient</Button>
                 <Button className="btn" onClick={this.addIngredient}>
                   Add Ingredient
                 </Button>
@@ -208,12 +209,12 @@ class RecipeForm extends React.Component {
                     </Button>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </FormGroup>
           </Col>
           <Col>
             <FormGroup>
-              <div className="directions-wrapper">
+              {/* <div className="directions-wrapper"> */}
                 <Label>Directions</Label>
                 <Input
                   type="text"
@@ -222,7 +223,7 @@ class RecipeForm extends React.Component {
                   value={this.state.directionValue}
                   placeholder="Direction"
                 />
-                <Button onClick={this.addDirection}>Plus</Button>
+                {/* <Button onClick={this.addDirection}>Add Direction</Button>
                 {this.state.directions.map((direction, index) => (
                   <div className="direction">
                     <ShowArrayItem
@@ -238,10 +239,10 @@ class RecipeForm extends React.Component {
                     </Button>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </FormGroup>
           </Col>
-          <Col>
+          {/* <Col>
             <FormGroup>
               <div className="tags-wrapper">
                 <Label>Tags</Label>
@@ -300,7 +301,7 @@ class RecipeForm extends React.Component {
                 </div>
               ))}
             </FormGroup>
-          </Col>
+          </Col> */}
 
           <Button className="btn" type="submit">
             Add Recipe
