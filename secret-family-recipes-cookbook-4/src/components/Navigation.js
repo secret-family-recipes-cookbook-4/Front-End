@@ -6,13 +6,17 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <div>
-        <img className="logo" src={Recipes} alt="recipes logo"/>
+        <img className="logo" src={Recipes} alt="recipes logo" />
       </div>
       <div className="link">
-        <Link to="/">Home</Link>
+        <a href="https://mmcleod.me/Secret-Family-Recipe-Cookbook/index.html">
+          Home
+        </a>
       </div>
       <div className="link">
-        <Link to="/about">About</Link>
+        <a href="https://mmcleod.me/Secret-Family-Recipe-Cookbook/about.html">
+          About
+        </a>
       </div>
       <div className="link">
         <Link to="/login">Login</Link>
@@ -21,10 +25,10 @@ const Navigation = () => {
         <Link to="/registrationForm">Sign Up</Link>
       </div>
       <div className="link">
-      <Link to="/recipes">Recipes</Link>
+        <Link to="/recipes">Recipes</Link>
       </div>
-    </div>  
+    </div>
   );
-}
+};
 
 export default Navigation;
