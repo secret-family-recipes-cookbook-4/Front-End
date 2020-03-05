@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   Button,
   Container,
   Col,
   Form,
   FormGroup,
+  FormText,
   Input,
   Label
 } from "reactstrap";
@@ -103,6 +105,17 @@ const RegistrationForm = props => {
         <Button className="btn" type="submit" id="submit-btn">
           Submit!
         </Button>
+        <Col>
+          <FormGroup>
+            <FormText className="signup">
+              Don't have an account.
+              <br></br>
+              <NavLink to="/RegistrationForm" className="newSignup">
+                Signup here.
+              </NavLink>
+            </FormText>
+          </FormGroup>
+        </Col>
       </Form>
     </Container>
   );
