@@ -53,7 +53,9 @@ const RegistrationForm = props => {
             />
           </FormGroup>
         </Col>
-        <Button type="submit">Login</Button>
+        <Button className="btn" type="submit">
+          Login
+        </Button>
       </Form>
     </Container>
   );

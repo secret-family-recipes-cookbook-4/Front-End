@@ -152,8 +152,8 @@ class RecipeForm extends React.Component {
   render() {
     return (
       <Container className="recipe-form">
-        <Label>Create New Recipe</Label>
-        <Form onSubmit={this.submitRecipe}>
+        <h1>Create New Recipe</h1>
+        <Form className="form" onSubmit={this.submitRecipe}>
           <Col>
             <FormGroup>
               <Input
@@ -189,7 +189,9 @@ class RecipeForm extends React.Component {
                   onChange={this.handleChanges}
                   value={this.state.ingredientValue}
                 />
-                <Button onClick={this.addIngredient}>Add Ingredient</Button>
+                <Button className="btn" onClick={this.addIngredient}>
+                  Add Ingredient
+                </Button>
 
                 {this.state.ingredients.map((ingredient, index) => (
                   <div className="ingredient">
@@ -198,7 +200,10 @@ class RecipeForm extends React.Component {
                       item={ingredient}
                       key={index}
                     />
-                    <Button onClick={e => this.deleteIngredient(e, index)}>
+                    <Button
+                      className="btn"
+                      onClick={e => this.deleteIngredient(e, index)}
+                    >
                       Delete Ingredient
                     </Button>
                   </div>
@@ -225,7 +230,10 @@ class RecipeForm extends React.Component {
                       item={direction}
                       key={index}
                     />
-                    <Button onClick={e => this.deleteDirection(e, index)}>
+                    <Button
+                      className="btn"
+                      onClick={e => this.deleteDirection(e, index)}
+                    >
                       Delete Direction
                     </Button>
                   </div>
@@ -241,6 +249,7 @@ class RecipeForm extends React.Component {
                   {this.state.commonTags.map((tag, index) => {
                     return (
                       <Button
+                        className="btn"
                         key={index}
                         onClick={e => this.addTagByButton(e, tag)}
                       >
@@ -254,11 +263,16 @@ class RecipeForm extends React.Component {
                     onChange={this.handleChanges}
                     value={this.state.tag}
                   />
-                  <Button onClick={this.addCustomTag}>Add Custom Tag</Button>
+                  <Button className="btn" onClick={this.addCustomTag}>
+                    Add Custom Tag
+                  </Button>
                   {this.state.tags.map((tag, index) => (
                     <div className="tag">
                       <p>{tag}</p>
-                      <Button onClick={e => this.deleteTag(e, index)}>
+                      <Button
+                        className="btn"
+                        onClick={e => this.deleteTag(e, index)}
+                      >
                         Delete Tag
                       </Button>
                     </div>
@@ -288,7 +302,9 @@ class RecipeForm extends React.Component {
             </FormGroup>
           </Col>
 
-          <Button type="submit">Add Recipe</Button>
+          <Button className="btn" type="submit">
+            Add Recipe
+          </Button>
         </Form>
       </Container>
     );
