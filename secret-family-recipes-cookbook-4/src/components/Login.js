@@ -26,7 +26,7 @@ const RegistrationForm = props => {
 
   return (
     <Container className="Container">
-      <Form className="form">
+      <Form onSubmit={event => handleSubmit(event)} className="form">
         <Col>
           <FormGroup>
             <Label htmlFor="username">Username: </Label>
@@ -51,7 +51,7 @@ const RegistrationForm = props => {
             />
           </FormGroup>
         </Col>
-        <Button onSubmit={event => handleSubmit(event)}>Login</Button>
+        <Button type="submit">Login</Button>
       </Form>
     </Container>
   );

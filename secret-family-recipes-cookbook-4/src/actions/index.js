@@ -11,7 +11,7 @@ export const signUp = (credentials) => dispatch => {
   dispatch({ type: SIGN_UP_START });
   axios
     .post(
-      "https://bw-sfc4.herokuapp.com/api/auth/register",
+      "https://secret-recipes-2.herokuapp.com/api/auth/register",
       creds
     )
     .then(res => {
@@ -32,13 +32,13 @@ export const LOG_IN_FAILURE = "LOG_IN_FAILURE";
 export const logIn = (credentials) => dispatch => {
   const creds = { username: credentials.username, password: credentials.password }
   dispatch({ type: LOG_IN_START });
-  axiosWithAuth().post(
-      "/api/auth/login",
+  axios.post(
+      "https://secret-recipes-2.herokuapp.com/api/auth/login",
       creds
     ).then(res => {
       dispatch({ type: LOG_IN_SUCCESS });
       console.log(res)
-      localStorage.setItem("token", res.data.payload);
+      localStorage.setItem("token", res.data.token);
       return true;
     }).catch(err => {
       dispatch({ type: LOG_IN_FAILURE, payload: err.message });
