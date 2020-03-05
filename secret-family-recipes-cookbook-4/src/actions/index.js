@@ -56,7 +56,7 @@ export const getRecipe = () => dispatch => {
   axiosWithAuth()
     .get(`/api/recipes/allRecipes`)
     .then(res => {
-      console.log(res.data)
+      console.log(res)
       dispatch({ type: FETCH_RECIPE_SUCCESS, payload: res.data });
     })
     .catch(err => {
