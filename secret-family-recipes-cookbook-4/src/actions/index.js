@@ -14,7 +14,7 @@ export const signUp = (credentials) => dispatch => {
     .post(
       "https://secret-recipes-2.herokuapp.com/api/auth/register",
       creds
-    )
+  )
     .then(res => {
       dispatch({ type: SIGN_UP_SUCCESS });
       console.log("res", res)

@@ -8,6 +8,7 @@ const RecipeCard = props => {
       <p>Ingredients: {props.recipe.ingredients}</p>
       <p>Instructions: {props.recipe.instructions}</p>
     </div>
+    
   );
 };
 

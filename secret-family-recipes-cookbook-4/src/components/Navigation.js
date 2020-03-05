@@ -6,15 +6,11 @@ const Navigation = () => {
   return (
     <div className="navigation">
       <div>
-        <a href="https://mmcleod.me/Secret-Family-Recipe-Cookbook/index.html">
-          <img className="logo" src={Recipes} alt="recipes logo" />
-        </a>
+        <img className="logo" alt= "recipe_logo" src={Recipes}/>
       </div>
       <div className="link">
-        <a href="https://mmcleod.me/Secret-Family-Recipe-Cookbook/index.html">
-          Home
-        </a>
-      </div>
+        <Link to="/">Home</Link>
+      </div> 
       <div className="link">
         <a href="https://mmcleod.me/Secret-Family-Recipe-Cookbook/about.html">
           About
