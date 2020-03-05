@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 const RegistrationForm = props => {
   const [newUser, setUser] = useState({
     username: "",
-    password: "",
+    password: ""
   });
 
   const handleChange = event => {
@@ -24,7 +24,7 @@ const RegistrationForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.signUp(newUser);
-    props.history.push('/login');
+    props.history.push("/login");
   };
 
   return (
@@ -100,7 +100,7 @@ const RegistrationForm = props => {
             />
           </FormGroup>
         </Col> */}
-        <Button type="submit" id="submit-btn">
+        <Button className="btn" type="submit" id="submit-btn">
           Submit!
         </Button>
       </Form>

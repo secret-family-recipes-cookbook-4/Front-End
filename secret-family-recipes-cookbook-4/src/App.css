@@ -46,6 +46,14 @@ main {
   /* overflow: hidden; */
 }
 
+h1 {
+  font-family: "Butterfly Kids", cursive;
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 5%;
+  color: #ffffff;
+}
+
 .form {
   display: flex;
   flex-flow: column nowrap;
@@ -61,6 +69,11 @@ main {
   font-size: 1.8rem;
   font-weight: bold;
   background-color: #964e31;
+}
+
+.btn {
+  background-color: #d14a0c;
+  font-family: "Butterfly Kids", cursive;
 }
 
 .navigation {
