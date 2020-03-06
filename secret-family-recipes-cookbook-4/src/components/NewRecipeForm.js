@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { addRecipe } from "../actions"
 import {
     Button,
     Container,
@@ -9,6 +10,7 @@ import {
     Input,
     Label
   } from "reactstrap";
+
 
 const NewRecipeForm = props => {
 
@@ -23,11 +25,16 @@ const handleChange = event => {
     setNewRecipe({ ...newRecipe, [event.target.name]: event.target.value });
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.addRecipe(newRecipe);
+  };
+
     return (
         <Container className="Container">
-            <Form>
+            <Form onSubmit={event => handleSubmit(event)}>
                 <Col>
-                    <FormGroup>
+                    <FormGroup >
                         <Label htmlFor="title">Title: </Label>
                         <Input
                         id="title"
@@ -86,4 +93,4 @@ const mapStateToProps = state => {
     };
   };
 
-export default connect(mapStateToProps, {})(NewRecipeForm);
+export default connect(mapStateToProps, { addRecipe })(NewRecipeForm);
