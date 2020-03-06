@@ -6,7 +6,7 @@ import NewRecipeForm from "./NewRecipeForm";
 const Dashboard = props => { 
     useEffect(() => { 
         props.getRecipe();
-    }, [Dashboard])
+    }, [])
 
 const handleDelete = event => {
     event.persist();
