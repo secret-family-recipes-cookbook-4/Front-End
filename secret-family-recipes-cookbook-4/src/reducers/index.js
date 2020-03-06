@@ -23,34 +23,35 @@ import {
   } from "../actions";
   
   const initialState = {
-    recipe: [{
-      id: 1,
-      title: "Fresh Herbed Chicken Breasts",
-      source: "Internet",
-      ingredients: "12 oz boneless chicken breasts, 2 medium cloves garlic, pressed, 1 TBS fresh squeezed lemon juice, 2 tsp chopped fresh sage",
-      instructions: "Preheat broiler on high. Place ovenproof metal pan under broiler to get hot. When chicken is done remove skin, slice, and place on platter. Drizzle herb sauce over chicken."
-    },
-    {
-    id: 2,
-      title: "10-Minute Apple Sundae",
-      source: "Cooking Book",
-      ingredients: "2 apples, 2 TBS almond butter, ¼ cup maple syrup, 2 TBS sliced almonds",
-      instructions: "Coarsely chop almonds and set aside for topping. In a small mixing bowl, blend the almond butter, maple syrup, and almond extract until smooth. It should be the consistency of caramel sauce."
-    },
-    {
-    id: 3,
-      title: "Salmon in Citrus Sauce",
-      source: "Cooking App",
-      ingredients: "1-1/2 lbs salmon filets, cut into 4 pieces, 1/2 medium sized onion, 2 medium cloves garlic, 1-1/2 cups fresh orange juice",
-      instructions: "Preheat broiler and place a stainless steel or cast iron skillet under broiler for about 10 minutes to get it very hot. Chop onions and garlic and let sit for 5 minutes to enhance their hidden health-promoting properties."
-    },
-    {
-    id: 4,
-      title: "Roast Leg of Lamb",
-      source: "Internet",
-      ingredients: "3 to 4lbs of boneless leg of lamb, 8 cloves of garlic, 3 TBS chopped rosemary, 2 tsp salt, 1 tsp fresh ground pepper",
-      instructions: "Cut off excess fat from leg of lamb. Lay leg of lamb out flat in glass baking dish. Press garlic and chop rosemary. Rub leg with both making sure you get it into the crevices. Pour fresh lemon juice over lamb and sprinkle with salt. Cover and refrigerate overnight."
-    }
+    recipe: [
+    //   {
+    //   id: 1,
+    //   title: "Fresh Herbed Chicken Breasts",
+    //   source: "Internet",
+    //   ingredients: "12 oz boneless chicken breasts, 2 medium cloves garlic, pressed, 1 TBS fresh squeezed lemon juice, 2 tsp chopped fresh sage",
+    //   instructions: "Preheat broiler on high. Place ovenproof metal pan under broiler to get hot. When chicken is done remove skin, slice, and place on platter. Drizzle herb sauce over chicken."
+    // },
+    // {
+    // id: 2,
+    //   title: "10-Minute Apple Sundae",
+    //   source: "Cooking Book",
+    //   ingredients: "2 apples, 2 TBS almond butter, ¼ cup maple syrup, 2 TBS sliced almonds",
+    //   instructions: "Coarsely chop almonds and set aside for topping. In a small mixing bowl, blend the almond butter, maple syrup, and almond extract until smooth. It should be the consistency of caramel sauce."
+    // },
+    // {
+    // id: 3,
+    //   title: "Salmon in Citrus Sauce",
+    //   source: "Cooking App",
+    //   ingredients: "1-1/2 lbs salmon filets, cut into 4 pieces, 1/2 medium sized onion, 2 medium cloves garlic, 1-1/2 cups fresh orange juice",
+    //   instructions: "Preheat broiler and place a stainless steel or cast iron skillet under broiler for about 10 minutes to get it very hot. Chop onions and garlic and let sit for 5 minutes to enhance their hidden health-promoting properties."
+    // },
+    // {
+    // id: 4,
+    //   title: "Roast Leg of Lamb",
+    //   source: "Internet",
+    //   ingredients: "3 to 4lbs of boneless leg of lamb, 8 cloves of garlic, 3 TBS chopped rosemary, 2 tsp salt, 1 tsp fresh ground pepper",
+    //   instructions: "Cut off excess fat from leg of lamb. Lay leg of lamb out flat in glass baking dish. Press garlic and chop rosemary. Rub leg with both making sure you get it into the crevices. Pour fresh lemon juice over lamb and sprinkle with salt. Cover and refrigerate overnight."
+    // }
   ],
     titles: [],
     error: null,
@@ -124,7 +125,7 @@ import {
           error: null,
           fetchingRecipe: false,
           success: true,
-          recipe: [...state.recipe, action.payload]
+          recipe: action.payload
         };
       case FETCH_RECIPE_FAILURE:
         return {

@@ -18,7 +18,8 @@ const [newRecipe, setNewRecipe] = useState({
 title: "",
 source: "",
 ingredients: "",
-instructions: ""
+instructions: "",
+category: ""
 })
 
 const handleChange = event => {
@@ -77,6 +78,18 @@ const handleChange = event => {
                     type="text"
                     name="instructions"
                     value={newRecipe.instructions}
+                    onChange={event => handleChange(event)}
+                    />
+                    </FormGroup>
+                </Col>
+                <Col>
+                    <FormGroup>  
+                    <Label htmlFor="category">Category: </Label>  
+                    <Input
+                    id="category"
+                    type="text"
+                    name="category"
+                    value={newRecipe.category}
                     onChange={event => handleChange(event)}
                     />
                     </FormGroup>
