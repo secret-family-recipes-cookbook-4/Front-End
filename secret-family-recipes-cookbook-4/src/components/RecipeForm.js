@@ -247,7 +247,7 @@ class RecipeForm extends React.Component {
                   {this.state.commonTags.map((tag, index) => {
                     return (
                       <Button
-                        className="btn"
+                        className="btnTags"
                         key={index}
                         onClick={e => this.addTagByButton(e, tag)}
                       >

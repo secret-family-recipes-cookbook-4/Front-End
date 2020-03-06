@@ -69,11 +69,13 @@ h1 {
   font-size: 1.8rem;
   font-weight: bold;
   background-color: #964e31;
+  background-image: url("./img/cooking.jpg");
 }
 
 .btn {
   background-color: #d14a0c;
   font-family: "Butterfly Kids", cursive;
+  margin-top: 2%;
 }
 
 .navigation {
@@ -94,6 +96,8 @@ h1 {
 
 a {
   color: black;
+  font-family: "Butterfly Kids", cursive;
+  font-size: 1.5rem;
 }
 
 a:hover {
@@ -129,4 +133,18 @@ a:hover {
   margin: 20px;
   border-radius: 10px;
   width: 35vw;
+}
+=======
+.newSignup {
+  color: #d14a0c;
+}
+
+.signup {
+  text-align: center;
+  margin-top: 2%;
+}
+
+.btnTags {
+  width: 150px;
+  margin-bottom: 5%;
 }
