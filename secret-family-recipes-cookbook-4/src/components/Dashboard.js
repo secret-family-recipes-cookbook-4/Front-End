@@ -4,9 +4,9 @@ import { getRecipe, deleteRecipe } from "../actions";
 import NewRecipeForm from "./NewRecipeForm";
 
 const Dashboard = props => { 
-    useEffect(() => { 
-        props.getRecipe();
-    }, [])
+    // useEffect(() => { 
+    //     props.getRecipe();
+    // }, [])
 
 const handleDelete = event => {
     event.persist();
@@ -18,7 +18,7 @@ const handleDelete = event => {
     return (
         <div>
             <NewRecipeForm />
-            <div>
+            <div className="recipes">
                 {props.recipe && props.recipe.map(recipe => (
                 <div key={recipe.id} className="recipe">
                     <h3>{recipe.title}</h3>
