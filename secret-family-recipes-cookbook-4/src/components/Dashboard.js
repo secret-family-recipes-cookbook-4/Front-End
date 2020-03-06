@@ -4,9 +4,9 @@ import { getRecipe, deleteRecipe } from "../actions";
 import NewRecipeForm from "./NewRecipeForm";
 
 const Dashboard = props => { 
-    // useEffect(() => { 
-    //     props.getRecipe();
-    // }, [])
+    useEffect(() => { 
+        props.getRecipe();
+    }, [Dashboard])
 
 const handleDelete = event => {
     event.persist();
