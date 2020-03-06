@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "jsonwebtoken": "^8.5.1",
-    "now": "^17.0.4",
-    "reactstrap": "^8.4.1"
-  }
-}
