@@ -190,9 +190,6 @@ class RecipeForm extends React.Component {
                   value={this.state.ingredientValue}
                 />
                 {/* <Button onClick={this.addIngredient}>Add Ingredient</Button>
-                <Button className="btn" onClick={this.addIngredient}>
-                  Add Ingredient
-                </Button>
 
                 {this.state.ingredients.map((ingredient, index) => (
                   <div className="ingredient">

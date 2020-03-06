@@ -23,7 +23,21 @@ import {
   } from "../actions";
   
   const initialState = {
-    recipe: [],
+    recipe: [{
+      id: 1,
+      title: "Fresh Herbed Chicken Breasts",
+      source: "Internet",
+      ingredients: "12 oz boneless chicken breasts, 2 medium cloves garlic, pressed, 1 TBS fresh squeezed lemon juice, 2 tsp chopped fresh sage",
+      instructions: "Preheat broiler on high. Place ovenproof metal pan under broiler to get hot. When chicken is done remove skin, slice, and place on platter. Drizzle herb sauce over chicken."
+    },
+    {
+    id: 2,
+      title: "10-Minute Apple Sundae",
+      source: "Cooking Book",
+      ingredients: "2 apples, 2 TBS almond butter, ¼ cup maple syrup, 2 TBS sliced almonds",
+      instructions: "Coarsely chop almonds and set aside for topping. In a small mixing bowl, blend the almond butter, maple syrup, and almond extract until smooth. It should be the consistency of caramel sauce."
+    }
+  ],
     titles: [],
     error: null,
     signingUp: false,
@@ -95,8 +109,8 @@ import {
           ...state,
           error: null,
           fetchingRecipe: false,
-          recipe: action.payload,
-          success: true
+          success: true,
+          recipe: [...state.recipe, action.payload]
         };
       case FETCH_RECIPE_FAILURE:
         return {
