@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { updateRecipe } from "../actions"
 import {
@@ -12,14 +12,6 @@ import {
   } from "reactstrap";
 
 const EditRecipeForm = props => {
-
-// const [editRecipe, setEditRecipe] = useState({ 
-// title: "",
-// source: "",
-// ingredients: "",
-// instructions: "",
-// category: ""
-// })
 
 const handleChange = event => {
     props.setRecipeToEdit({ ...props.recipeToEdit, [event.target.name]: event.target.value });
@@ -89,6 +81,7 @@ const handleChange = event => {
                     </FormGroup>
                 </Col>
                 <Button type="submit">Edit Recipe</Button>
+                <Button onClick={props.cancelEdit} className="cancel-btn">Cancel</Button>
             </Form>
         </Container>) }</div>
     );
