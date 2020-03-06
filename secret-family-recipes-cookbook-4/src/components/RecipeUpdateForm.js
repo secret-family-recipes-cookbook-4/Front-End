@@ -6,7 +6,6 @@ import ShowArrayItem from "./ShowArrayItem";
 import { axiosWithAuth } from "../util/axiosWithAuth";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-
 class RecipeUpdateForm extends React.Component {
   state = {
     title: "",
@@ -193,7 +192,11 @@ class RecipeUpdateForm extends React.Component {
       tags: this.state.tags,
       notes: fullNoteString
     };
-    this.props.updateRecipe(this.props.match.params.id, updatedRecipe, this.props.history);
+    this.props.updateRecipe(
+      this.props.match.params.id,
+      updatedRecipe,
+      this.props.history
+    );
   };
 
   render() {
@@ -229,20 +232,20 @@ class RecipeUpdateForm extends React.Component {
             <button onClick={this.addIngredient}>Add Ingredient</button>
 
             <div className="ingredients-list">
-            {this.state.ingredients.map((ingredient, index) => (
-              <div className="ingredient">
-                <ShowArrayItem
-                  listNum={index + 1}
-                  item={ingredient}
-                  key={index}
-                />
+              {this.state.ingredients.map((ingredient, index) => (
+                <div className="ingredient">
+                  <ShowArrayItem
+                    listNum={index + 1}
+                    item={ingredient}
+                    key={index}
+                  />
                   <FaRegTrashAlt
                     size={20}
                     color="#D8E4DA"
                     onClick={e => this.deleteIngredient(e, index)}
                   />
-              </div>
-            ))}
+                </div>
+              ))}
             </div>
           </div>
           <div className="directions-wrapper">
@@ -262,11 +265,11 @@ class RecipeUpdateForm extends React.Component {
                   item={direction}
                   key={index}
                 />
-                  <FaRegTrashAlt
-                    size={20}
-                    color="#D8E4DA"
-                    onClick={e => this.deleteDirection(e, index)}
-                  />
+                <FaRegTrashAlt
+                  size={20}
+                  color="#D8E4DA"
+                  onClick={e => this.deleteDirection(e, index)}
+                />
               </div>
             ))}
           </div>
@@ -336,8 +339,5 @@ const mapStateToProps = state => ({
 });
 
 export default withRouter(
-  connect(
-    mapStateToProps,
-    { getRecipe, updateRecipe }
-  )(RecipeUpdateForm)
+  connect(mapStateToProps, { getRecipe, updateRecipe })(RecipeUpdateForm)
 );
