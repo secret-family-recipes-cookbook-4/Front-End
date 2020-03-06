@@ -33,10 +33,14 @@ const editRecipe = (e, recipe) => {
     setRecipeToEdit(recipe)
 }
 
+const cancelEdit = (event) => {
+    setEdit(false);
+}
+
     return (
         <div>
-            <NewRecipeForm />
-            <EditRecipeForm recipeToEdit={recipeToEdit} setRecipeToEdit={setRecipeToEdit} handleEdit={handleEdit}/>
+            {!edit && (<NewRecipeForm />)}
+            {edit && (<EditRecipeForm recipeToEdit={recipeToEdit} setRecipeToEdit={setRecipeToEdit} handleEdit={handleEdit} cancelEdit={cancelEdit}/>)}
             <div className="recipes">
                 {props.recipe && props.recipe.map(recipe => (
                 <div key={recipe.id} className="recipe">
