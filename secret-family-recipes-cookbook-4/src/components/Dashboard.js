@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux";
-import { getRecipe, deleteRecipe } from "../actions";
+import { getRecipe, deleteRecipe, updateRecipe } from "../actions";
 import NewRecipeForm from "./NewRecipeForm";
 
 const Dashboard = props => { 
@@ -8,11 +8,20 @@ const Dashboard = props => {
         props.getRecipe();
     }, [])
 
-const handleDelete = event => {
+const handleDelete = (event, id) => {
+    console.log(event)
     event.persist();
     event.preventDefault();
     event.stopPropagation();
-    props.deleteRecipe(props.recipe); 
+    props.deleteRecipe(id); 
+}
+
+const handleEdit = (event, id) => {
+    console.log(event)
+    event.persist();
+    event.preventDefault();
+    event.stopPropagation();
+    props.updateRecipe(id); 
 }
 
     return (
@@ -25,7 +34,8 @@ const handleDelete = event => {
                     <p>Source: {recipe.source}</p>
                     <p>Ingredients: {recipe.ingredients}</p>
                     <p>Instructions: {recipe.instructions}</p>
-                    <button onClick={handleDelete}>Delete Recipe</button>
+                    <button onClick={(e)=> handleDelete(e, recipe.id)}>Delete Recipe</button>
+                    <button onClick={(e)=> handleEdit(e, recipe.id)} className="edit-btn">Edit Recipe</button>
                 </div>
             ))}
             </div>
@@ -40,4 +50,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { getRecipe, deleteRecipe })(Dashboard);
+export default connect(mapStateToProps, { getRecipe, deleteRecipe, updateRecipe })(Dashboard);
