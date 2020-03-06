@@ -148,3 +148,7 @@ a:hover {
   width: 150px;
   margin-bottom: 5%;
 }
+
+.edit-btn {
+  margin-left: 15px;
+}

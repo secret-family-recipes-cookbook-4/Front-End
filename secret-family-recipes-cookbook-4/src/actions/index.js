@@ -75,8 +75,6 @@ export const addRecipe = (newRecipe) => dispatch => {
       .post("/api/recipes", {...newRecipe, user_id: userId})
     .then(res => {
       dispatch({ type: ADD_RECIPE_SUCCESS, payload: res.data });
-      // const recipe_id = res.data[res.data.length - 1].id
-      // history.push(`/recipes/view/${recipe_id}`)
     })
     .catch(err => {
       dispatch({ type: ADD_RECIPE_FAILURE, payload: err });
@@ -87,14 +85,12 @@ export const UPDATE_RECIPE_START = "EDIT_RECIPE_START";
 export const UPDATE_RECIPE_SUCCESS = "EDIT_RECIPE_SUCCESS";
 export const UPDATE_RECIPE_FAILURE = "EDIT_RECIPE_FAILURE";
 
-export const updateRecipe = (recipeID, updatedRecipe, history) => dispatch => {
+export const updateRecipe = (updatedRecipe) => dispatch => {
   dispatch({ type: UPDATE_RECIPE_START });
   axiosWithAuth()
-    .put(`/api/recipes/${recipeID}`, updatedRecipe)
+    .put(`/api/recipes/${updatedRecipe.id}`, updatedRecipe)
     .then(res => {
       dispatch({ type: UPDATE_RECIPE_SUCCESS, payload: res.data });
-      const recipe_id = res.data.id
-      history.push(`/recipes/view/${recipe_id}`)
     })
     .catch(err => {
       dispatch({ type: UPDATE_RECIPE_FAILURE, payload: err });
@@ -105,10 +101,10 @@ export const DELETE_RECIPE_START = "DELETE_RECIPE_START";
 export const DELETE_RECIPE_SUCCESS = "DELETE_RECIPE_SUCCESS";
 export const DELETE_RECIPE_FAILURE = "DELETE_RECIPE_FAILURE";
 
-export const deleteRecipe = (recipe, history) => dispatch => {
+export const deleteRecipe = (id, history) => dispatch => {
   dispatch({ type: DELETE_RECIPE_START });
   axiosWithAuth()
-    .delete(`/api/recipes/:${recipe.id}`)
+    .delete(`/api/recipes/${id}`)
     .then(res => {
       dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data });
       history.push('/');
