@@ -17,7 +17,7 @@ const [searchResults, setSearchResults] = useState([]);
             return rec.title.toLowerCase().includes(titleSearch.toLowerCase());
         });
         setSearchResults(recipes)
-    }, [titleSearch]);
+    }, [titleSearch, props.deletingRecipe, props.addingRecipe, props.updatingRecipe]);
 
 const handleSearch = event => {
     setTitleSearch(event.target.value);
@@ -101,6 +101,9 @@ const mapStateToProps = state => {
     console.log(state.recipe)
     return {
         recipe: state.recipe,
+        addingRecipe: state.addingRecipe,
+        updatingRecipe: state.updatingRecipe,
+        deletingRecipe: state.deletingRecipe
     };
 };
 
