@@ -138,7 +138,7 @@ import {
           fetchingRecipe: false,
           error: null,
           updatingRecipe: true,
-          recipe: action.payload
+          recipes: action.payload
         };
       case UPDATE_RECIPE_FAILURE:
         return {
