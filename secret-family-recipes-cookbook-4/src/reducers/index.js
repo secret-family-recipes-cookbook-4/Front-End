@@ -105,6 +105,7 @@ import {
       case ADD_RECIPE_START:
         return {
           ...state,
+          fetchingRecipe: true,
           error: null,
           addingRecipe: false,
           recipes: action.payload
@@ -112,6 +113,7 @@ import {
       case ADD_RECIPE_SUCCESS:
         return {
           ...state,
+          fetchingRecipe: false,
           error: null,
           addingRecipe: true,
           recipes: action.payload
@@ -119,18 +121,21 @@ import {
       case ADD_RECIPE_FAILURE:
         return {
           ...state,
+          fetchingRecipe: false,
           error: action.payload,
           addingRecipe: false
         };
       case UPDATE_RECIPE_START:
         return {
           ...state,
+          fetchingRecipe: true,
           error: null,
           updatingRecipe: false
         };
       case UPDATE_RECIPE_SUCCESS:
         return {
           ...state,
+          fetchingRecipe: false,
           error: null,
           updatingRecipe: true,
           recipe: action.payload
@@ -138,18 +143,21 @@ import {
       case UPDATE_RECIPE_FAILURE:
         return {
           ...state,
+          fetchingRecipe: false,
           error: action.payload,
           updatingRecipe: false
         };
       case DELETE_RECIPE_START:
         return {
           ...state,
+          fetchingRecipe: true,
           error: null,
           deletingRecipe: false
         };
       case DELETE_RECIPE_SUCCESS:
         return {
           ...state,
+          fetchingRecipe: false,
           recipes: action.payload,
           deletingRecipe: true,
           error: null
@@ -157,6 +165,7 @@ import {
         case DELETE_RECIPE_FAILURE:
             return {
               ...state,
+              fetchingRecipe: false,
               error: action.payload,
               deletingRecipe: false
             };

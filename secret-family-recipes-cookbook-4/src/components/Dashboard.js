@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getRecipe, deleteRecipe, updateRecipe } from "../actions";
 import NewRecipeForm from "./NewRecipeForm";
 import EditRecipeForm from "./EditRecipeForm";
+import RecipeCard from "./RecipeCard";
 
 const Dashboard = props => {
 const [edit, setEdit] = useState(false)
@@ -29,7 +30,6 @@ const handleSearch = event => {
 }
 
 const handleDelete = (event, id) => {
-    console.log(event)
     event.persist();
     event.preventDefault();
     event.stopPropagation();
@@ -37,20 +37,20 @@ const handleDelete = (event, id) => {
 }
 
 const handleEdit = (event, recipe) => {
-    console.log(event)
     event.persist();
     event.preventDefault();
     event.stopPropagation();
-    props.updateRecipe(recipe); 
+    props.updateRecipe(recipe);
+    setEdit(false); 
 }
 
 const editRecipe = (e, recipe) => {
-    console.log(recipe);
+    e.preventDefault();
     setEdit(true);
     setRecipeToEdit(recipe)
 }
 
-const cancelEdit = (event) => {
+const cancelEdit = () => {
     setEdit(false);
 }
 
@@ -67,28 +67,14 @@ const cancelEdit = (event) => {
                     value={titleSearch}
                 />
             </form>
-            {searching &&(<div>
+            {searching &&(<div className="recipes">
                 {searchResults.map(recipe => (
-                    <div key={recipe.id} className="recipe">
-                        <h3>{recipe.title}</h3>
-                        <p>Source: {recipe.source}</p>
-                        <p>Ingredients: {recipe.ingredients}</p>
-                        <p>Instructions: {recipe.instructions}</p>
-                        <button onClick={(e)=> handleDelete(e, recipe.id)}>Delete Recipe</button>
-                        <button onClick={(e)=> editRecipe(e, recipe)} className="edit-btn">Edit Recipe</button>
-                    </div>
+                    <RecipeCard key={recipe.id} handleDelete={handleDelete} editRecipe={editRecipe} recipe={recipe}/>
             ))}
             </div>)}
             {!searching && (<div className="recipes">
                 {props.recipe && props.recipe.map(recipe => (
-                <div key={recipe.id} className="recipe">
-                    <h3>{recipe.title}</h3>
-                    <p>Source: {recipe.source}</p>
-                    <p>Ingredients: {recipe.ingredients}</p>
-                    <p>Instructions: {recipe.instructions}</p>
-                    <button onClick={(e)=> handleDelete(e, recipe.id)}>Delete Recipe</button>
-                    <button onClick={(e)=> editRecipe(e, recipe)} className="edit-btn">Edit Recipe</button>
-                </div>
+                    <RecipeCard key={recipe.id} handleDelete={handleDelete} editRecipe={editRecipe} recipe={recipe}/>
             ))}
             </div>)}
             {!edit && (<NewRecipeForm />)}
@@ -103,7 +89,8 @@ const mapStateToProps = state => {
         recipe: state.recipe,
         addingRecipe: state.addingRecipe,
         updatingRecipe: state.updatingRecipe,
-        deletingRecipe: state.deletingRecipe
+        deletingRecipe: state.deletingRecipe,
+        fetchingRecipe: state.fetchingRecipe
     };
 };
 

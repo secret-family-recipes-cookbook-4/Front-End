@@ -101,13 +101,12 @@ export const DELETE_RECIPE_START = "DELETE_RECIPE_START";
 export const DELETE_RECIPE_SUCCESS = "DELETE_RECIPE_SUCCESS";
 export const DELETE_RECIPE_FAILURE = "DELETE_RECIPE_FAILURE";
 
-export const deleteRecipe = (id, history) => dispatch => {
+export const deleteRecipe = (id) => dispatch => {
   dispatch({ type: DELETE_RECIPE_START });
   axiosWithAuth()
     .delete(`/api/recipes/${id}`)
     .then(res => {
       dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data });
-      history.push('/');
     })
     .catch(err => {
       dispatch({ type: DELETE_RECIPE_FAILURE, payload: err });
