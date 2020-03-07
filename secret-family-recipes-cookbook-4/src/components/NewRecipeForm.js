@@ -29,6 +29,11 @@ const handleChange = event => {
   const handleSubmit = event => {
     event.preventDefault();
     props.addRecipe(newRecipe);
+    setNewRecipe({title: "",
+    source: "",
+    ingredients: "",
+    instructions: "",
+    category: ""})
   };
 
     return (
