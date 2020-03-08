@@ -4,6 +4,7 @@ import { getRecipe, deleteRecipe, updateRecipe } from "../actions";
 import NewRecipeForm from "./NewRecipeForm";
 import EditRecipeForm from "./EditRecipeForm";
 import RecipeCard from "./RecipeCard";
+import { Form, Input, Label } from "reactstrap";
 
 const Dashboard = props => {
   const [edit, setEdit] = useState(false);
@@ -61,17 +62,19 @@ const Dashboard = props => {
 
   return (
     <div>
-      <form>
-        <label htmlFor="name">Search: </label>
-        <input
+      <Form className="formSearch">
+        <Label htmlFor="name">Search: </Label>
+        <br></br>
+        <Input
           id="name"
           type="text"
           name="textfield"
-          placeholder="Search recipe by title"
+          placeholder="Search Recipe by Title"
           onChange={handleSearch}
           value={titleSearch}
+          className="field"
         />
-      </form>
+      </Form>
       {searching && (
         <div className="recipes">
           {searchResults.map(recipe => (

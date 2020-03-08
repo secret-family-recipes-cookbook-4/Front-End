@@ -11,7 +11,7 @@ import "./App.css";
 import jwt from "jsonwebtoken";
 
 function App() {
-  console.log(jwt.decode(localStorage.getItem("token")))
+  console.log(jwt.decode(localStorage.getItem("token")));
 
   return (
     <main>
