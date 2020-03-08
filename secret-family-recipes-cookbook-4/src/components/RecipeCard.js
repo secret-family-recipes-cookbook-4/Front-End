@@ -12,8 +12,8 @@ const RecipeCard = props => {
   return (
     <div className="recipe">
       <Card className="card">
-        <CardHeader>{props.recipe.title}</CardHeader>
-        <CardBody>
+        <CardHeader className="title">{props.recipe.title}</CardHeader>
+        <CardBody className="body">
           <CardTitle>Source: {props.recipe.source}</CardTitle>
           <br></br>
           <CardText>Ingredients: {props.recipe.ingredients}</CardText>
