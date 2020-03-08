@@ -9,7 +9,7 @@ const Navigation = () => {
         <img className="logo" alt= "recipe_logo" src={Recipes}/>
       </div>
       <div className="link">
-        <Link to="/">Home</Link>
+        <a href="https://mmcleod.me/Secret-Family-Recipe-Cookbook/index.html">Home</a>
       </div> 
       <div className="link">
         <a href="https://mmcleod.me/Secret-Family-Recipe-Cookbook/about.html">

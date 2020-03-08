@@ -262,6 +262,7 @@ a:hover {
   margin: 20px;
   border-radius: 10px;
   width: 100%;
+  text-align: center;
 }
 
 .newSignup {
@@ -298,4 +299,12 @@ a:hover {
 
 .card {
   width: 100%;
+}
+
+.title {
+  font-size: 40px;  
+}
+
+.body {
+  margin-top: 30px;
 }
