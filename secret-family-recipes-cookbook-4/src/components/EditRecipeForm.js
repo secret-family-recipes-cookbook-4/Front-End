@@ -23,7 +23,10 @@ const EditRecipeForm = props => {
     <div>
       {props.recipeToEdit && (
         <Container className="Container">
-          <Form onSubmit={event => props.handleEdit(event, props.recipeToEdit)}>
+          <Form
+            onSubmit={event => props.handleEdit(event, props.recipeToEdit)}
+            className="form"
+          >
             <Col>
               <FormGroup>
                 <Label htmlFor="title">Title: </Label>
@@ -33,6 +36,7 @@ const EditRecipeForm = props => {
                   name="title"
                   value={props.recipeToEdit.title}
                   onChange={event => handleChange(event)}
+                  className="field"
                 />
               </FormGroup>
             </Col>
@@ -45,6 +49,7 @@ const EditRecipeForm = props => {
                   name="source"
                   value={props.recipeToEdit.source}
                   onChange={event => handleChange(event)}
+                  className="field"
                 />
               </FormGroup>
             </Col>
@@ -53,10 +58,11 @@ const EditRecipeForm = props => {
                 <Label htmlFor="ingredients">Ingredients: </Label>
                 <Input
                   id="ingredients"
-                  type="text"
+                  type="textarea"
                   name="ingredients"
                   value={props.recipeToEdit.ingredients}
                   onChange={event => handleChange(event)}
+                  className="field"
                 />
               </FormGroup>
             </Col>
@@ -65,10 +71,11 @@ const EditRecipeForm = props => {
                 <Label htmlFor="instructions">Instructions: </Label>
                 <Input
                   id="instructions"
-                  type="text"
+                  type="textarea"
                   name="instructions"
                   value={props.recipeToEdit.instructions}
                   onChange={event => handleChange(event)}
+                  className="field"
                 />
               </FormGroup>
             </Col>
@@ -81,6 +88,7 @@ const EditRecipeForm = props => {
                   name="category"
                   value={props.recipeToEdit.category}
                   onChange={event => handleChange(event)}
+                  className="field"
                 />
               </FormGroup>
             </Col>
