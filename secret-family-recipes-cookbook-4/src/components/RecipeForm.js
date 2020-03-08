@@ -141,7 +141,7 @@ class RecipeForm extends React.Component {
       title: this.state.title,
       source: this.state.source,
       ingredients: this.state.ingredients,
-      instructions: this.state.directions,
+      instructions: this.state.directions
       // tags: this.state.tags,
       // notes: fullNoteString
     };
@@ -151,7 +151,7 @@ class RecipeForm extends React.Component {
 
   render() {
     return (
-      <Container className="recipe-form">
+      <Container className="form">
         <h1>Create New Recipe</h1>
         <Form className="form" onSubmit={this.submitRecipe}>
           <Col>
@@ -180,16 +180,16 @@ class RecipeForm extends React.Component {
           <Col>
             <FormGroup>
               {/* <div className="ingredients-wrapper"> */}
-                <Label>Ingredients</Label>
+              <Label>Ingredients</Label>
 
-                <Input
-                  placeholder="Ingredient"
-                  type="text"
-                  name="ingredientValue"
-                  onChange={this.handleChanges}
-                  value={this.state.ingredientValue}
-                />
-                {/* <Button onClick={this.addIngredient}>Add Ingredient</Button>
+              <Input
+                placeholder="Ingredient"
+                type="text"
+                name="ingredientValue"
+                onChange={this.handleChanges}
+                value={this.state.ingredientValue}
+              />
+              {/* <Button onClick={this.addIngredient}>Add Ingredient</Button>
 
                 {this.state.ingredients.map((ingredient, index) => (
                   <div className="ingredient">
@@ -212,15 +212,15 @@ class RecipeForm extends React.Component {
           <Col>
             <FormGroup>
               {/* <div className="directions-wrapper"> */}
-                <Label>Directions</Label>
-                <Input
-                  type="text"
-                  name="directionValue"
-                  onChange={this.handleChanges}
-                  value={this.state.directionValue}
-                  placeholder="Direction"
-                />
-                {/* <Button onClick={this.addDirection}>Add Direction</Button>
+              <Label>Directions</Label>
+              <Input
+                type="text"
+                name="directionValue"
+                onChange={this.handleChanges}
+                value={this.state.directionValue}
+                placeholder="Direction"
+              />
+              {/* <Button onClick={this.addDirection}>Add Direction</Button>
                 {this.state.directions.map((direction, index) => (
                   <div className="direction">
                     <ShowArrayItem

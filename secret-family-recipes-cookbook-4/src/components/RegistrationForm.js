@@ -71,6 +71,7 @@ const RegistrationForm = props => {
               required
               value={newUser.username}
               onChange={event => handleChange(event)}
+              className="field"
             />
           </FormGroup>
         </Col>
@@ -85,6 +86,7 @@ const RegistrationForm = props => {
               required
               value={newUser.password}
               onChange={event => handleChange(event)}
+              className="field"
             />
           </FormGroup>
         </Col>
@@ -108,10 +110,11 @@ const RegistrationForm = props => {
         <Col>
           <FormGroup>
             <FormText className="signup">
-              Don't have an account.
+              Already Have an Account Then
               <br></br>
-              <NavLink to="/RegistrationForm" className="newSignup">
-                Signup here.
+              <br></br>
+              <NavLink to="/Login" className="newSignup">
+                Login Here
               </NavLink>
             </FormText>
           </FormGroup>

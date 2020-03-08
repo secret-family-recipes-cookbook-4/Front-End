@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   Button,
   Container,
   Col,
   Form,
   FormGroup,
+  FormText,
   Input,
   Label
 } from "reactstrap";
@@ -37,6 +39,7 @@ const RegistrationForm = props => {
               required
               value={user.username}
               onChange={event => handleChange(event)}
+              className="field"
             />
           </FormGroup>
         </Col>
@@ -50,12 +53,25 @@ const RegistrationForm = props => {
               required
               value={user.password}
               onChange={event => handleChange(event)}
+              className="field"
             />
           </FormGroup>
         </Col>
         <Button className="btn" type="submit">
           Login
         </Button>
+        <Col>
+          <FormGroup>
+            <FormText className="signup">
+              Don't have an account.
+              <br></br>
+              <br></br>
+              <NavLink to="/RegistrationForm" className="newSignup">
+                Signup here.
+              </NavLink>
+            </FormText>
+          </FormGroup>
+        </Col>
       </Form>
     </Container>
   );

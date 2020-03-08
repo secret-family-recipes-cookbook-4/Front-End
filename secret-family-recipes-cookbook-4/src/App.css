@@ -1,57 +1,162 @@
-/* .App {
-  text-align: center;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  line-height: 1;
 }
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+ol,
+ul {
+  list-style: none;
 }
-.App-link {
-  color: #61dafb;
+blockquote,
+q {
+  quotes: none;
 }
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
 
 html {
   background: url("./img/cooking.jpg") no-repeat center center fixed;
   background-size: cover;
   height: 100%;
+  font-size: 62.5%;
   /* overflow: hidden; */
 }
 
 main {
-  background: #725e44;
+  font-family: "Courgette", cursive;
+  background: #000;
   background-size: cover;
   height: 100%;
   /* overflow: hidden; */
 }
 
 h1 {
-  font-family: "Butterfly Kids", cursive;
+  font-family: "Courgette", cursive;
   font-size: 4rem;
   text-align: center;
   margin-bottom: 5%;
   color: #ffffff;
+}
+
+.field {
+  font-size: medium;
+  margin-top: 2%;
 }
 
 .form {
@@ -60,21 +165,42 @@ h1 {
   align-content: center;
   align-items: center;
   justify-content: space-around;
-  font-family: "Butterfly Kids", cursive;
+  font-family: "Courgette", cursive;
   margin: 0 auto;
   width: 75%;
   padding: 30px;
   color: white;
   text-transform: uppercase;
-  font-size: 1.8rem;
+  font-size: 3rem;
   font-weight: bold;
-  background-color: #964e31;
-  background-image: url("./img/cooking.jpg");
+  background-color: #000;
+  border: 2px solid #fff;
+  /* background-image: url("./img/cooking.jpg"); */
+}
+
+.formSearch {
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Courgette", cursive;
+  margin: 1% auto;
+  width: 36%;
+  padding: 30px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: bold;
+  background-color: #000;
+  border: 2px solid #fff;
+  /* background-image: url("./img/cooking.jpg"); */
 }
 
 .btn {
   background-color: #d14a0c;
-  font-family: "Butterfly Kids", cursive;
+  font-family: "Courgette", cursive;
+  font-size: 4rem;
   margin-top: 2%;
 }
 
@@ -96,7 +222,7 @@ h1 {
 
 a {
   color: black;
-  font-family: "Butterfly Kids", cursive;
+  font-family: "Courgette", cursive;
   font-size: 1.5rem;
 }
 
@@ -105,7 +231,7 @@ a:hover {
   color: #964e31;
 }
 
-.recipe button{
+.recipe button {
   background-color: #d14a0c;
   border: none;
   border-radius: 4px;
@@ -116,7 +242,8 @@ a:hover {
 
 .recipe button:hover {
   background-color: #6c757d;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .recipes {
@@ -129,7 +256,7 @@ a:hover {
 
 .recipe {
   padding: 20px;
-  background-color: white;
+  /* background-color: white; */
   margin: 20px;
   border-radius: 10px;
   width: 35vw;
@@ -137,11 +264,13 @@ a:hover {
 
 .newSignup {
   color: #d14a0c;
+  font-size: 3rem;
 }
 
 .signup {
   text-align: center;
   margin-top: 2%;
+  font-size: 3rem;
 }
 
 .btnTags {
