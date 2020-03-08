@@ -46,7 +46,7 @@ const NewRecipeForm = props => {
               id="title"
               type="text"
               name="title"
-              placeholder="White Queso"
+              placeholder=""
               value={newRecipe.title}
               onChange={event => handleChange(event)}
               className="field"
@@ -60,7 +60,7 @@ const NewRecipeForm = props => {
               id="source"
               type="text"
               name="source"
-              placeholder="https://familyspice.com/the-easiest-white-queso-ever/"
+              placeholder=""
               value={newRecipe.source}
               onChange={event => handleChange(event)}
               className="field"
@@ -74,7 +74,7 @@ const NewRecipeForm = props => {
               id="ingredients"
               type="textarea"
               name="ingredients"
-              placeholder="1 1/2 Cup Heavy Cream, 2 Cup Shredded Pepper Jack Cheese "
+              placeholder=""
               value={newRecipe.ingredients}
               onChange={event => handleChange(event)}
               className="field"
@@ -88,7 +88,7 @@ const NewRecipeForm = props => {
               id="instructions"
               type="textarea"
               name="instructions"
-              placeholder="Step by Step Directions"
+              placeholder=""
               value={newRecipe.instructions}
               onChange={event => handleChange(event)}
               className="field"
@@ -102,7 +102,7 @@ const NewRecipeForm = props => {
               id="category"
               type="text"
               name="category"
-              placeholder="Appetizers"
+              placeholder=""
               value={newRecipe.category}
               onChange={event => handleChange(event)}
               className="field"
