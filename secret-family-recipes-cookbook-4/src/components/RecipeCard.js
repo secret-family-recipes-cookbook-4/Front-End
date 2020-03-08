@@ -1,21 +1,39 @@
 import React from "react";
+import {
+  Card,
+  Button,
+  CardHeader,
+  CardBody,
+  CardTitle,
+  CardText
+} from "reactstrap";
 
 const RecipeCard = props => {
   return (
     <div className="recipe">
-      <h3>{props.recipe.title}</h3>
-      <p>Source: {props.recipe.source}</p>
-      <p>Ingredients: {props.recipe.ingredients}</p>
-      <p>Instructions: {props.recipe.instructions}</p>
-      <button onClick={e => props.handleDelete(e, props.recipe.id)}>
-        Delete Recipe
-      </button>
-      <button
-        onClick={e => props.editRecipe(e, props.recipe)}
-        className="edit-btn"
-      >
-        Edit Recipe
-      </button>
+      <Card className="card">
+        <CardHeader>{props.recipe.title}</CardHeader>
+        <CardBody>
+          <CardTitle>Source: {props.recipe.source}</CardTitle>
+          <br></br>
+          <CardText>Ingredients: {props.recipe.ingredients}</CardText>
+          <br></br>
+          <CardText>Instructions: {props.recipe.instructions}</CardText>
+          <br></br>
+          <Button
+            onClick={e => props.handleDelete(e, props.recipe.id)}
+            className="edit-btn"
+          >
+            Delete Recipe
+          </Button>
+          <Button
+            onClick={e => props.editRecipe(e, props.recipe)}
+            className="edit-btn"
+          >
+            Edit Recipe
+          </Button>
+        </CardBody>
+      </Card>
     </div>
   );
 };
